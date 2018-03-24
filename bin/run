@@ -1,0 +1,7 @@
+# java -classpath build build/HelloWorld.class
+java -classpath build HelloWorld
+
+
+# == References:
+# - [bash \- How do I run a java program from a different directory? \- Stack Overflow]
+#  (https://stackoverflow.com/questions/1190018/how-do-i-run-a-java-program-from-a-different-directory)
