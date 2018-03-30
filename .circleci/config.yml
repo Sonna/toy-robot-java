@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    docker:
+    - image: gradle:latest
+    steps:
+    - checkout
+    - run: gradle build
+
+  test:
+    docker:
+    - image: gradle:latest
+    steps:
+    - checkout
+    - run: gradle test
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+    - build
+    - test
