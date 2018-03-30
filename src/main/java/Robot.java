@@ -102,4 +102,11 @@ public class Robot {
             this.y -= MOVE.get(this.facing).get("y");
         }
     }
+
+    public void place(String rawCoordinates) {
+        String[] coordinates = rawCoordinates.split(",");
+        this.x = Integer.parseInt(coordinates[0]);
+        this.y = Integer.parseInt(coordinates[1]);
+        this.facing = coordinates[2];
+    }
 }

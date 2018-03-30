@@ -238,4 +238,22 @@ public class RobotTest {
         assertEquals(0, subject.y);
         assertEquals("SOUTH", subject.facing);
     }
+
+    @Test public void testPlace() {
+        Robot subject = new Robot();
+        subject.place("3,3,EAST");
+
+        assertEquals(3, subject.x);
+        assertEquals(3, subject.y);
+        assertEquals("EAST", subject.facing);
+    }
+
+    @Test public void testPlace42WEST() {
+        Robot subject = new Robot();
+        subject.place("4,2,WEST");
+
+        assertEquals(4, subject.x);
+        assertEquals(2, subject.y);
+        assertEquals("WEST", subject.facing);
+    }
 }
