@@ -256,4 +256,53 @@ public class RobotTest {
         assertEquals(2, subject.y);
         assertEquals("WEST", subject.facing);
     }
+
+    @Test public void testExecPlace() {
+        Robot subject = new Robot();
+        subject.exec("PLACE", "3,1,SOUTH");
+
+        assertEquals(3, subject.x);
+        assertEquals(1, subject.y);
+        assertEquals("SOUTH", subject.facing);
+    }
+
+    @Test public void testExecMove() {
+        Robot subject = new Robot();
+        subject.exec("MOVE", "");
+
+        assertEquals(0, subject.x);
+        assertEquals(1, subject.y);
+        assertEquals("NORTH", subject.facing);
+    }
+
+    @Test public void testExecLeft() {
+        Robot subject = new Robot();
+        subject.exec("LEFT", "");
+
+        assertEquals(0, subject.x);
+        assertEquals(0, subject.y);
+        assertEquals("WEST", subject.facing);
+    }
+
+    @Test public void testExecRight() {
+        Robot subject = new Robot();
+        subject.exec("RIGHT", "");
+
+        assertEquals(0, subject.x);
+        assertEquals(0, subject.y);
+        assertEquals("EAST", subject.facing);
+    }
+
+    @Test public void testExecReport() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(baos));
+
+        Robot subject = new Robot();
+        subject.exec("REPORT", "");
+
+        assertEquals("0,0,NORTH\n", baos.toString());
+        assertEquals(0, subject.x);
+        assertEquals(0, subject.y);
+        assertEquals("NORTH", subject.facing);
+    }
 }
