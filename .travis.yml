@@ -1,0 +1,13 @@
+sudo: required
+
+language: java
+
+services:
+- docker
+
+before_install:
+- docker pull gradle:latest
+
+script:
+- docker run --rm -v $(pwd):/app -w /app gradle:latest bash -c "gradle build"
+- docker run --rm -v $(pwd):/app -w /app gradle:latest bash -c "gradle test"
