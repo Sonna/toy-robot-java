@@ -30,6 +30,6 @@ public class Robot {
     }
 
     public void report() {
-        System.out.println("0,0,NORTH");
+        System.out.format("%d,%d,%s\n", this.x, this.y, this.facing);
     }
 }
