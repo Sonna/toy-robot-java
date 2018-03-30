@@ -1,6 +1,28 @@
 package com.sonneveld.ToyRobot;
 
+import java.util.*;
+// import java.util.Map;
+
 public class Robot {
+    private static final Map<String, Map<String, String>> TURN;
+    static {
+        Map<String, String> north = new HashMap();
+        north.put("LEFT", "WEST");
+        Map<String, String> west = new HashMap();
+        west.put("LEFT", "SOUTH");
+        Map<String, String> south = new HashMap();
+        south.put("LEFT", "EAST");
+        Map<String, String> east = new HashMap();
+        east.put("LEFT", "NORTH");
+
+        Map<String, Map<String, String>> turnMap = new HashMap();
+        turnMap.put("NORTH", north);
+        turnMap.put("WEST", west);
+        turnMap.put("SOUTH", south);
+        turnMap.put("EAST", east);
+        TURN = Collections.unmodifiableMap(turnMap);
+    }
+
     int x;
     int y;
     String facing;
@@ -31,5 +53,9 @@ public class Robot {
 
     public void report() {
         System.out.format("%d,%d,%s\n", this.x, this.y, this.facing);
+    }
+
+    public void left() {
+        this.facing = TURN.get(this.facing).get("LEFT");
     }
 }
