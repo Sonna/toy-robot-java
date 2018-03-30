@@ -1,0 +1,8 @@
+image: gradle:latest
+
+before_script:
+  - gradle build
+
+test:
+  script:
+  - gradle test
