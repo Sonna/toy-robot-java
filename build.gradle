@@ -20,3 +20,9 @@ jar {
                'Implementation-Version': version
   }
 }
+
+tasks.withType(JavaCompile) {
+  // options.compilerArgs += ["-Xdoclint:unchecked"]
+  options.fork = true //enable compilation in a separate daemon process
+  options.incremental = true //enable incremental compilation
+}

@@ -130,4 +130,112 @@ public class RobotTest {
         assertEquals(0, subject.y);
         assertEquals("NORTH", subject.facing);
     }
+
+    @Test public void testMove() {
+        Robot subject = new Robot();
+        subject.move();
+
+        assertEquals(0, subject.x);
+        assertEquals(1, subject.y);
+        assertEquals("NORTH", subject.facing);
+    }
+
+    @Test public void testMoveEAST() {
+        Robot subject = new Robot(0, 0, "EAST");
+        subject.move();
+
+        assertEquals(1, subject.x);
+        assertEquals(0, subject.y);
+        assertEquals("EAST", subject.facing);
+    }
+
+    @Test public void testMoveWESTfrom11() {
+        Robot subject = new Robot(1, 1, "WEST");
+        subject.move();
+
+        assertEquals(0, subject.x);
+        assertEquals(1, subject.y);
+        assertEquals("WEST", subject.facing);
+    }
+
+    @Test public void testMoveSOUTHfrom11() {
+        Robot subject = new Robot(1, 1, "SOUTH");
+        subject.move();
+
+        assertEquals(1, subject.x);
+        assertEquals(0, subject.y);
+        assertEquals("SOUTH", subject.facing);
+    }
+
+    @Test public void testMoveDoesNotFallOffTableFrom00SOUTH() {
+        Robot subject = new Robot(0, 0, "SOUTH");
+        subject.move();
+
+        assertEquals(0, subject.x);
+        assertEquals(0, subject.y);
+        assertEquals("SOUTH", subject.facing);
+    }
+
+    @Test public void testMoveDoesNotFallOffTableFrom00WEST() {
+        Robot subject = new Robot(0, 0, "WEST");
+        subject.move();
+
+        assertEquals(0, subject.x);
+        assertEquals(0, subject.y);
+        assertEquals("WEST", subject.facing);
+    }
+
+    @Test public void testMoveDoesNotFallOffTableFrom04WEST() {
+        Robot subject = new Robot(0, 4, "WEST");
+        subject.move();
+
+        assertEquals(0, subject.x);
+        assertEquals(4, subject.y);
+        assertEquals("WEST", subject.facing);
+    }
+
+    @Test public void testMoveDoesNotFallOffTableFrom04NORTH() {
+        Robot subject = new Robot(0, 4, "NORTH");
+        subject.move();
+
+        assertEquals(0, subject.x);
+        assertEquals(4, subject.y);
+        assertEquals("NORTH", subject.facing);
+    }
+
+    @Test public void testMoveDoesNotFallOffTableFrom44NORTH() {
+        Robot subject = new Robot(4, 4, "NORTH");
+        subject.move();
+
+        assertEquals(4, subject.x);
+        assertEquals(4, subject.y);
+        assertEquals("NORTH", subject.facing);
+    }
+
+    @Test public void testMoveDoesNotFallOffTableFrom44EAST() {
+        Robot subject = new Robot(4, 4, "EAST");
+        subject.move();
+
+        assertEquals(4, subject.x);
+        assertEquals(4, subject.y);
+        assertEquals("EAST", subject.facing);
+    }
+
+    @Test public void testMoveDoesNotFallOffTableFrom04EAST() {
+        Robot subject = new Robot(4, 0, "EAST");
+        subject.move();
+
+        assertEquals(4, subject.x);
+        assertEquals(0, subject.y);
+        assertEquals("EAST", subject.facing);
+    }
+
+    @Test public void testMoveDoesNotFallOffTableFrom04SOUTH() {
+        Robot subject = new Robot(4, 0, "SOUTH");
+        subject.move();
+
+        assertEquals(4, subject.x);
+        assertEquals(0, subject.y);
+        assertEquals("SOUTH", subject.facing);
+    }
 }
