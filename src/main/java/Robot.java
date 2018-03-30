@@ -8,12 +8,16 @@ public class Robot {
     static {
         Map<String, String> north = new HashMap();
         north.put("LEFT", "WEST");
+        north.put("RIGHT", "EAST");
         Map<String, String> west = new HashMap();
         west.put("LEFT", "SOUTH");
+        west.put("RIGHT", "NORTH");
         Map<String, String> south = new HashMap();
         south.put("LEFT", "EAST");
+        south.put("RIGHT", "WEST");
         Map<String, String> east = new HashMap();
         east.put("LEFT", "NORTH");
+        east.put("RIGHT", "SOUTH");
 
         Map<String, Map<String, String>> turnMap = new HashMap();
         turnMap.put("NORTH", north);
@@ -57,5 +61,9 @@ public class Robot {
 
     public void left() {
         this.facing = TURN.get(this.facing).get("LEFT");
+    }
+
+    public void right() {
+        this.facing = TURN.get(this.facing).get("RIGHT");
     }
 }

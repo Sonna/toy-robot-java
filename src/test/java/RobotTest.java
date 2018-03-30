@@ -95,4 +95,39 @@ public class RobotTest {
         assertEquals(0, subject.y);
         assertEquals("NORTH", subject.facing);
     }
+    @Test public void testRight() {
+        Robot subject = new Robot();
+        subject.right();
+
+        assertEquals(0, subject.x);
+        assertEquals(0, subject.y);
+        assertEquals("EAST", subject.facing);
+    }
+
+    @Test public void testRightFromEAST() {
+        Robot subject = new Robot(0, 0, "EAST");
+        subject.right();
+
+        assertEquals(0, subject.x);
+        assertEquals(0, subject.y);
+        assertEquals("SOUTH", subject.facing);
+    }
+
+    @Test public void testRightFromSOUTH() {
+        Robot subject = new Robot(0, 0, "SOUTH");
+        subject.right();
+
+        assertEquals(0, subject.x);
+        assertEquals(0, subject.y);
+        assertEquals("WEST", subject.facing);
+    }
+
+    @Test public void testRightFromWEST() {
+        Robot subject = new Robot(0, 0, "WEST");
+        subject.right();
+
+        assertEquals(0, subject.x);
+        assertEquals(0, subject.y);
+        assertEquals("NORTH", subject.facing);
+    }
 }
