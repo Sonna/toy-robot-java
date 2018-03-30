@@ -1,7 +1,11 @@
-# java -classpath build build/HelloWorld.class
-java -classpath build HelloWorld
+#!/usr/bin/env bash
 
+# java -classpath build build/ToyRobot.class
+# java -classpath build ToyRobot
 
 # == References:
 # - [bash \- How do I run a java program from a different directory? \- Stack Overflow]
 #  (https://stackoverflow.com/questions/1190018/how-do-i-run-a-java-program-from-a-different-directory)
+
+gradle build
+java -jar build/libs/toy-robot-java-1.0.jar

@@ -1,2 +1,8 @@
-cd build
-jar cvf HelloWorld.jar *
+#!/usr/bin/env bash
+
+# cd build
+# echo "Manifest-Version: 1.0" > MANIFEST.MF
+# jar cvf ToyRobot.jar *
+# rm MANIFEST.MF
+
+gradle build

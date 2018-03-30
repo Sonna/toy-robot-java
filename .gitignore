@@ -26,3 +26,7 @@ hs_err_pid*
 # - [gitignore/Java\.gitignore at master · github/gitignore]
 #   (https://github.com/github/gitignore/blob/master/Java.gitignore)
 #
+
+# Ignore Gradle working directories
+.gradle/
+build/
