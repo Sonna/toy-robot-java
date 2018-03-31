@@ -1,14 +1,11 @@
 package com.sonneveld.ToyRobot;
 
 import java.io.*;
-// import java.io.File;
-// import java.io.IOException;
 import java.util.Scanner;
 
 public class CLI {
     static public void run(String[] args) {
         if (args.length > 0) {
-            // try(InputStream inputStream = new FileInputStream(args[0])) {
             try {
                 InputStream inputStream = new FileInputStream(args[0]);
                 process(inputStream);
@@ -26,36 +23,31 @@ public class CLI {
         String rawCommand = "";
         String rawCommandArgs = "";
 
-        // try (Scanner scanner = new Scanner(input)) {
-        // try {
-            Scanner scanner = new Scanner(input);
+        Scanner scanner = new Scanner(input);
 
-            while (scanner.hasNext()){
-                String line = scanner.nextLine();
-                if (line.equals("EXIT")) {
-                    break;
-                }
+        while (scanner.hasNext()){
+            String line = scanner.nextLine();
+            if (line.equals("EXIT")) {
+                break;
+            }
 
-                String[] rawCommands = line.split(" ");
+            String[] rawCommands = line.split(" ");
 
-                if (rawCommands.length > 0) {
-                    rawCommand = rawCommands[0];
+            if (rawCommands.length > 0) {
+                rawCommand = rawCommands[0];
 
-                    if (rawCommands.length > 1) {
-                        rawCommandArgs = rawCommands[1];
-                    }
-                    else {
-                        rawCommandArgs = "";
-                    }
+                if (rawCommands.length > 1) {
+                    rawCommandArgs = rawCommands[1];
                 }
                 else {
-                    rawCommand = "";
+                    rawCommandArgs = "";
                 }
-
-                robot.exec(rawCommand, rawCommandArgs);
             }
-        // } catch (IOException e) {
-        //     e.printStackTrace();
-        // }
+            else {
+                rawCommand = "";
+            }
+
+            robot.exec(rawCommand, rawCommandArgs);
+        }
     }
 }
