@@ -1,7 +1,6 @@
 package com.sonneveld.ToyRobot;
 
 import java.util.*;
-// import java.util.Map;
 
 public class Robot {
     private static final Map<String, Map<String, String>> TURN;

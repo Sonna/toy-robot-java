@@ -7,5 +7,8 @@
 # - [bash \- How do I run a java program from a different directory? \- Stack Overflow]
 #  (https://stackoverflow.com/questions/1190018/how-do-i-run-a-java-program-from-a-different-directory)
 
-gradle build
-java -jar build/libs/toy-robot-java-1.0.jar
+if [ ! -f build/libs/toy-robot-java-1.0.jar ]; then
+  gradle build
+fi
+
+java -jar build/libs/toy-robot-java-1.0.jar $1
